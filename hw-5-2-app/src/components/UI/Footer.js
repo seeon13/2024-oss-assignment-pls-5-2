@@ -11,7 +11,7 @@ const Footer = () => {
           </div>
           <div className="col-md-6 text-md-end">
             <div className="mb-2">
-              <i className="fas fa-envelope me-2"></i>Contact: example@email.com
+              <i className="fas fa-user me-2"></i>Movie Management System
             </div>
             <div>
               <i className="fas fa-code me-2"></i>Developed with React
