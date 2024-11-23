@@ -1,5 +1,3 @@
-// components/Pages/ShowList.js
-// ShowList.js
 import React, { useState, useEffect } from 'react';
 import MovieList from '../Movie/MovieList';
 import MovieModal from '../Movie/MovieModal';
@@ -33,12 +31,11 @@ const ShowList = () => {
   };
 
   const handleAddMovie = () => {
-    setSelectedMovie(null);
-    setShowModal(true);
+    window.location.href = '/create';
   };
 
   const handleEditMovie = (movie) => {
-    setSelectedMovie(movie); // movie 객체 전체를 저장
+    setSelectedMovie(movie);
     setShowModal(true);
   };
 

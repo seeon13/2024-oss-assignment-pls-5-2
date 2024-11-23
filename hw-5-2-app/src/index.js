@@ -1,29 +1,23 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import './index.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import MovieUpdate from "./components/Pages/MovieUpdate";
+import ShowList from "./components/Pages/ShowList";
+import MovieDetail from "./components/Pages/MovieDetail";
+import MovieCreate from "./components/Pages/MovieCreate";
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
+const path = window.location.pathname;
+let component;
 
-// // If you want to start measuring performance in your app, pass a function
-// // to log results (for example: reportWebVitals(console.log))
-// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
-// index.js
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+if (path.startsWith('/update/')) {
+  component = <MovieUpdate />;
+} else if (path.startsWith('/detail/')) {
+  component = <MovieDetail />;
+} else if (path === '/create') {
+  component = <MovieCreate />;
+} else {
+  component = <ShowList />;
+}
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(component);
