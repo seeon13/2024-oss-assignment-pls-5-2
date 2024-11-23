@@ -1,20 +1,11 @@
 import React from 'react';
 
-const MovieCard = ({ movie, onEdit, onDelete }) => {
-  // 이미지 URL이 http://로 시작하면 https://로 변경하는 함수
-  const getSecureImageUrl = (url) => {
-    if (!url) return '/api/placeholder/300/400';
-    if (url.startsWith('http://')) {
-      return url.replace('http://', 'https://');
-    }
-    return url;
-  };
-
+const MovieCard = ({ movie, onDelete }) => {
   return (
     <div className="col-md-4 mb-4">
-      <div className="card h-100">
+      <div className="card h-100" onClick={() => window.location.href = `/detail/${movie.id}`} style={{ cursor: 'pointer' }}>
         <img
-          src={getSecureImageUrl(movie.posterUrl)}
+          src={movie.posterUrl || '/api/placeholder/300/400'}
           className="card-img-top"
           alt={movie.title}
           onError={(e) => {
@@ -39,11 +30,14 @@ const MovieCard = ({ movie, onEdit, onDelete }) => {
               <i className="fas fa-users mr-2"></i>관객: {movie.audience.toLocaleString()}명
             </p>
           </div>
-          <div className="btn-group-movie d-flex justify-content-between" style={{ marginTop: '15px' }}>
-            <button className="btn btn-outline-primary" onClick={onEdit}>
-              <i className="fas fa-edit mr-1"></i>수정
-            </button>
-            <button className="btn btn-outline-danger" onClick={onDelete}>
+          <div className="btn-group-movie d-flex justify-content-end" style={{ marginTop: '15px' }}>
+            <button 
+              className="btn btn-outline-danger" 
+              onClick={(e) => {
+                e.stopPropagation();
+                onDelete();
+              }}
+            >
               <i className="fas fa-trash-alt mr-1"></i>삭제
             </button>
           </div>
