@@ -19,8 +19,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import ShowList from "./components/Pages/ShowList";
+import App from "./App";
 
-const myComponent = <ShowList />;
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(myComponent);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
