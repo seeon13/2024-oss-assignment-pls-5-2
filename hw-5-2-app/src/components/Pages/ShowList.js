@@ -33,7 +33,7 @@ const ShowList = () => {
   const handleAddMovie = () => {
     window.location.href = '/create';
   };
-  
+
   const handleEditMovie = (movie) => {
     setSelectedMovie(movie);
     setShowModal(true);
